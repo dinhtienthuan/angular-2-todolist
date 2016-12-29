@@ -5,7 +5,7 @@ import { Component, OnInit } from '@angular/core';
   template: `
     <div class="media media-priority-very-high">
       <div class="media-left">
-        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-check fa-fw fa-4x" aria-hidden="true"></i>
       </div>
       <div class="media-body">
         <h4>Test Task</h4>
@@ -22,7 +22,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <div class="media media-priority-high">
       <div class="media-left">
-        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-ban fa-fw fa-4x" aria-hidden="true"></i>
       </div>
       <div class="media-body">
         <h4>Test Task</h4>
@@ -39,7 +39,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <div class="media media-priority-medium">
       <div class="media-left">
-        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-fw fa-4x" aria-hidden="true"></i>
       </div>
       <div class="media-body">
         <h4>Test Task</h4>
@@ -56,7 +56,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <div class="media media-priority-low">
       <div class="media-left">
-        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-check fa-fw fa-4x" aria-hidden="true"></i>
       </div>
       <div class="media-body">
         <h4>Test Task</h4>
@@ -73,7 +73,7 @@ import { Component, OnInit } from '@angular/core';
     </div>
     <div class="media media-priority-very-low">
       <div class="media-left">
-        <i class="fa fa-check fa-4x" aria-hidden="true"></i>
+        <i class="fa fa-check fa-fw fa-4x" aria-hidden="true"></i>
       </div>
       <div class="media-body">
         <h4>Test Task</h4>
@@ -94,47 +94,55 @@ import { Component, OnInit } from '@angular/core';
     }
 
     .media-priority-very-high {
-      border: 1px solid red;
+      border: 1px solid #F44336;
     }
     
     .media-priority-very-high .media-left .fa {
-      background: red;
+      background: #F44336;
     }
 
     .media-priority-high {
-      border: 1px solid orange;
+      border: 1px solid #FF9800;
     }
     
     .media-priority-high .media-left .fa {
-      background: orange;
+      background: #FF9800;
     }
 
     .media-priority-medium {
-      border: 1px solid yellow;
+      border: 1px solid #FFEB3B;
     }
     
     .media-priority-medium .media-left .fa {
-      background: yellow;
+      background: #FFEB3B;
     }
 
     .media-priority-low {
-      border: 1px solid green;
+      border: 1px solid #4CAF50;
     }
 
     .media-priority-low .media-left .fa {
-      background: green;
+      background: #4CAF50;
     }
     
     .media-priority-very-low {
-      border: 1px solid blue;
+      border: 1px solid #2196F3;
     }
     
     .media-priority-very-low .media-left .fa {
-      background: blue;
+      background: #2196F3;
     }
 
     .media-left {
       padding-right: 0px;
+    }
+    
+    .media-left .fa {
+      height: 1em;
+    }
+
+    .media-left .fa-fw {
+      width: 1em;
     }
 
     .media-body {
