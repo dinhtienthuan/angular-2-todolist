@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import {Task} from "./task";
+import { Task } from "./task";
+import { Observable } from "rxjs";
 
 @Injectable()
 export class TaskService {
@@ -13,7 +14,11 @@ export class TaskService {
 
   constructor() { }
 
-  getTasks() {
-    return Promise.resolve(this.tasks);
+  getTasks(): Observable<Task[]> {
+    return new Observable(observer => {
+      setTimeout(() => {
+        observer.next(this.tasks);
+      }, 2000);
+    });
   }
 }
