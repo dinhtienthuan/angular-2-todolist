@@ -4,14 +4,36 @@ import {Task} from "./task";
 @Component({
   selector: 'app-task',
   template: `
-    <div class="media" [ngClass]="task.priority">
-      <div class="media-left">&nbsp;</div>
+    <div class="media">
+      <div class="media-left">
+        <div class="dropdown">
+          <button type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="true" [ngClass]="task.priority">
+          </button>
+          <ul class="dropdown-menu">
+            <li (click)="updatePriority('priority-very-high')">
+              <i class="option-priority priority-very-high"></i> Very High
+            </li>
+            <li (click)="updatePriority('priority-high')">
+              <i class="option-priority priority-high"></i> High
+            </li>
+            <li (click)="updatePriority('priority-medium')">
+              <i class="option-priority priority-medium"></i> Medium
+            </li>
+            <li (click)="updatePriority('priority-low')">
+              <i class="option-priority priority-low"></i> Low
+            </li>
+            <li (click)="updatePriority('priority-very-low')">
+              <i class="option-priority priority-very-low"></i> Very Low
+            </li>
+          </ul>
+        </div>
+      </div>
       <div class="media-body">
         <h4>
           <div class="dropdown">
             <i class="fa fa-fw fa-lg" [ngClass]="task.status" aria-hidden="true" data-toggle="dropdown"></i>
             <ul class="dropdown-menu">
-              <li (click)="updateStatus('fa-check')" value="fa-check">
+              <li (click)="updateStatus('fa-check')">
                 <i class="fa fa-check fa-fw fa-lg" aria-hidden="true" data-toggle="dropdown"></i> Done
               </li>
               <li (click)="updateStatus('fa-question')">
@@ -38,6 +60,14 @@ import {Task} from "./task";
       padding-right: 0px;
     }
     
+    .media-left .dropdown button {
+      padding-top: 0px;
+      padding-bottom: 0px;
+      width: 100%;
+      height: 100%;
+      border: 0px;
+    }
+    
     .media-body {
       padding-left: 10px;
       max-height: 4em;
@@ -57,27 +87,27 @@ import {Task} from "./task";
       color: #D50000;
     }
     
-    .media-priority-very-high .media-left {
+    .priority-very-high {
       background: #F44336;
     }
     
-    .media-priority-high .media-left {
+    .priority-high {
       background: #FF9800;
     }
 
-    .media-priority-medium .media-left {
+    .priority-medium {
       background: #FFEB3B;
     }
 
-    .media-priority-low .media-left {
+    .priority-low {
       background: #8BC34A;
     }
     
-    .media-priority-very-low .media-left {
+    .priority-very-low {
       background: #2196F3;
     }
     
-    div.dropdown {
+    .dropdown {
       display: inline;
     }
     
@@ -94,6 +124,12 @@ import {Task} from "./task";
     .dropdown-menu li:hover {
       background: #f5f5f5;
     }
+    
+    .option-priority {
+      display: inline;
+      padding: 5px 0 5px 5px;
+      margin-right: 5px;
+    }
   `]
 })
 export class TaskComponent implements OnInit {
@@ -104,6 +140,10 @@ export class TaskComponent implements OnInit {
 
   ngOnInit() {
 
+  }
+
+  updatePriority(priority: string): void {
+    this.task.priority = priority;
   }
 
   updateStatus(status: string): void {
