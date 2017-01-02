@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
       <div class="page-header">
         <h1>ToDoList</h1>
       </div>
-      <app-task></app-task>
+      <app-task-list></app-task-list>
     </div>
   `
 })

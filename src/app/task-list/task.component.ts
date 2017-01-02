@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, Input} from '@angular/core';
 import {Task} from "./task";
 
 @Component({
@@ -61,13 +61,8 @@ import {Task} from "./task";
   `]
 })
 export class TaskComponent implements OnInit {
-  task:Task = {
-    id: 0,
-    name: 'Test Task',
-    description: 'This is a test task. Do not implement it. It will be deleted after testing.',
-    priority: 'media-priority-very-high',
-    status: 'fa-check',
-  }
+  @Input() task: Task;
+
   constructor() { }
 
   ngOnInit() {
